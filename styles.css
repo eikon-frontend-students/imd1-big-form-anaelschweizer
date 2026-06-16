@@ -1,0 +1,655 @@
+/* Déclaration de la police personnalisée ITC Fenice */
+@font-face {
+  font-family: "ITC Fenice Regular"; /* Nom utilisé dans le CSS */
+  src:
+    url("Fontes/FeniceITCbyBT-Regular.woff2") format("woff2"),
+    /* Format moderne */ url("Fontes/FeniceITCbyBT-Regular.woff") format("woff"); /* Fallback */
+}
+
+/* Déclaration de la police Altmann Grotesk */
+@font-face {
+  font-family: "Altmann Grotesk Light";
+  src:
+    url("Fontes/AltmannGrotesk-Light.woff2") format("woff2"),
+    url("Fontes/AltmannGrotesk-Light.woff") format("woff");
+}
+
+/* Réinitialisation globale */
+* {
+  margin: 0; /* Supprime les marges par défaut */
+  box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
+}
+
+/* Variables CSS globales */
+:root {
+  --black: #000000; /* Variable couleur noir */
+  --white: #fdfcf8; /* Variable couleur blanche */
+  --blue-obligation: #0d64a8;
+  --blue-links: #51b3ff;
+  --button-radius: 20px;
+}
+
+/* Style général de la page */
+body {
+  background-color: var(--black); /* Fond noir */
+}
+
+/* Conteneur principal */
+.content {
+  position: relative; /* Référence pour les éléments positionnés en absolu --> Hero-Video, pour que cette video ne scroll pas */
+}
+
+/* Section de défilement */
+.scroll-content {
+  height: 100vh; /* Hauteur égale à la fenêtre */
+}
+
+/* Vidéo de fond */
+.Hero-Video {
+  position: absolute; /* Position libre dans le parent */
+  object-fit: contain; /* Conserve les proportions de la vidéo */
+  inset: 0; /* top/right/bottom/left = 0 */
+  width: 100%; /* Largeur totale */
+  z-index: -1; /* Derrière les autres éléments */
+}
+
+/* Section Hero */
+.Hero {
+  z-index: 1; /* Passe devant la vidéo */
+  display: flex; /* Active Flexbox */
+  flex-direction: column; /* Empile verticalement */
+  align-items: center; /* Centre horizontalement */
+  padding-top: 60vh; /* Décalage vers le bas */
+  height: 100vh; /* Hauteur écran */
+  gap: 30px; /* Espace entre les éléments */
+  margin-bottom: 300px; /* Espace sous la section */
+}
+
+/* Bloc contenant le titre et le texte */
+.Title-Text {
+  display: flex;
+  flex-direction: column; /* Éléments en colonne */
+  align-items: center; /* Centrage horizontal */
+  gap: 10px; /* Espace entre titre et texte */
+  text-align: center; /* Centre le texte */
+}
+
+/* Titre principal */
+.Hero-title {
+  font-family: ITC Fenice Regular; /* Police personnalisée */
+  font-size: clamp(40px, 5vw, 800px); /* Grande taille */
+  text-transform: uppercase; /* Majuscules */
+  color: var(--white); /* Couleur blanche */
+}
+
+/* Texte sous le titre */
+.Hero-text {
+  font-family: "Altmann Grotesk Light";
+  font-size: 17px;
+  color: var(--white);
+  width: 50vh;
+}
+
+/* Lien principal */
+.link {
+  font-size: 30px;
+  font-family: "Altmann Grotesk Light";
+  text-transform: uppercase;
+  color: var(--white);
+
+  /* Animation de l'effet de soulignement */
+  transition: text-underline-offset 0.4s ease;
+
+  text-decoration-line: underline; /* Ajoute un soulignement */
+  text-decoration-thickness: 0.1vh; /* Épaisseur du trait */
+  text-underline-offset: 30px; /* Distance du soulignement */
+}
+
+/* Effet au survol */
+.link:hover {
+  text-underline-offset: 10px; /* Rapproche le soulignement */
+}
+
+/* Section formulaire */
+.form {
+  padding-bottom: 100px; /* Espace en bas */
+  padding-left: 50px; /* Marge intérieure gauche */
+  padding-right: 50px; /* Marge intérieure droite */
+  margin-bottom: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 500px;
+}
+
+/* Tous les titres h1 */
+h1 {
+  color: var(--white);
+  font-family: ITC Fenice Regular;
+  text-transform: uppercase;
+  font-size: 58px;
+
+  /* Soulignement décoratif */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 10px;
+}
+
+/* Tous les paragraphes */
+p {
+  color: var(--white);
+  font-size: 20px;
+  font-family: Altmann Grotesk Light;
+  max-width: 800px; /* Limite la largeur du texte */
+
+  display: flex; /* Transforme le paragraphe en conteneur flex */
+  flex-wrap: wrap; /* Retour à la ligne si nécessaire */
+}
+
+/* Bloc teaser */
+.Teaser {
+  display: flex;
+  flex-direction: column; /* Éléments en colonne */
+  gap: 13px; /* Espacement vertical */
+}
+
+/* Conteneur d'un champ de formulaire */
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-bottom: solid 2px var(--white); /* Ligne sous le champ */
+  width: calc(50% - 25px);
+  padding-bottom: 5px;
+  color: var(--white);
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  font-size: 35px;
+  margin-bottom: 70px;
+}
+
+.text-input-nowrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-bottom: solid 2px var(--white); /* Ligne sous le champ */
+  width: 100%;
+  padding-bottom: 5px;
+  color: var(--white);
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  font-size: 35px;
+  margin-bottom: 70px;
+}
+
+.Text-inputs-nowrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+/* Input sans fond ni bordure */
+.BG-remove {
+  background: transparent; /* Fond transparent */
+  border: none; /* Retire la bordure */
+  outline: none; /* Retire le contour de focus */
+  color: var(--white);
+}
+
+/* Style du texte placeholder */
+::placeholder {
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+/* Texte indiquant un champ obligatoire */
+.obligatoire {
+  color: var(--blue-obligation); /* Bleu */
+}
+
+/* Conteneur de tous les champs */
+.Inputs {
+  display: flex;
+  gap: 50px; /* Espacement entre les champs */
+  flex-wrap: wrap; /* Retour à la ligne */
+  margin-top: 5vh; /* Espace au-dessus */
+}
+
+.Value {
+  font-size: 20px;
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  color: var(--white);
+  cursor: pointer;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.Radio-button input {
+  display: none;
+}
+.radio-custom {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  position: relative;
+}
+
+.Radio-button input:checked + .radio-custom::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.Radio-Title {
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  font-size: 35px;
+}
+
+.Radio-Text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.Radio-group-Title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.Dropdown-group {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+
+.form-label {
+  display: flex;
+  margin-bottom: 20px;
+  color: var(--white);
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  font-size: 35px;
+}
+
+.dropdown {
+  position: relative;
+  width: 350px;
+}
+
+.dropdown__trigger {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0 0 1px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown__placeholder {
+  font-size: 16px;
+  font-family: Altmann Grotesk Light;
+}
+
+.dropdown__arrow {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.dropdown.open .dropdown__arrow {
+  transform: rotate(-135deg);
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 10px;
+
+  list-style: none;
+  background: var(--black);
+  border-bottom: var(--white) solid 2px;
+  border-left: var(--white) solid 2px;
+  border-right: var(--white) solid 2px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+
+  z-index: 9999;
+}
+
+.dropdown.open .dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown__item {
+  margin-bottom: 10px;
+  color: var(--white);
+  font-family: Altmann Grotesk Light;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.dropdown__item:hover {
+  opacity: 0.8;
+}
+
+/* Toutes les images */
+img {
+  max-width: 100%; /* Empêche le débordement */
+  margin-left: auto;
+}
+
+/* Bloc formulaire + teaser */
+.Form-Teaser {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 55px;
+  margin-right: 10px;
+}
+
+/* Conteneur image du formulaire */
+.Form-IMG {
+  display: flex;
+  align-items: center; /* Aligne les éléments au centre */
+}
+
+.Button {
+  color: var(--white);
+  text-decoration: none;
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  border: var(--white) 1px solid;
+  border-radius: var(--button-radius);
+  padding: 7px 24px;
+  font-size: 21px;
+  transition: 0.4s ease;
+}
+
+.Button:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.buttons {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-dropdown {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.Button-back {
+  color: var(--white);
+  text-decoration: none;
+  font-family: Altmann Grotesk Light;
+  text-transform: uppercase;
+  border: var(--white) 1px solid;
+  border-radius: var(--button-radius);
+  padding: 7px 24px;
+  font-size: 21px;
+  transition: 0.4s ease;
+  opacity: 0.8;
+}
+
+.Button-back:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.Inputs-Button {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 60px;
+}
+
+.Inputs-Buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 60px;
+  width: 100%;
+}
+.Inputs-Buttons-Dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 60px;
+  width: 100%;
+}
+
+.Submit {
+  font-family: Altmann Grotesk Light;
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: var(--white) 1px solid;
+  border-radius: var(--button-radius);
+  padding: 7px 24px;
+  font-size: 21px;
+  transition: 0.4s ease;
+  background: transparent;
+}
+.Submit:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.verification-title {
+  font-family: Altmann Grotesk Light;
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 35px;
+}
+
+.verification-link {
+  font-size: 25px;
+  font-family: "Altmann Grotesk Light";
+  text-transform: uppercase;
+  color: var(--blue-links);
+
+  /* Animation de l'effet de soulignement */
+  transition: text-underline-offset 0.4s ease;
+
+  text-decoration-line: underline; /* Ajoute un soulignement */
+  text-decoration-thickness: 0.1vh; /* Épaisseur du trait */
+  text-underline-offset: 15px; /* Distance du soulignement */
+}
+
+.verification-link:hover {
+  text-underline-offset: 7px; /* Rapproche le soulignement */
+}
+
+.link-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.links-labels {
+  width: 1000px;
+}
+
+.Logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: auto;
+}
+
+.footer-links {
+  font-family: Altmann Grotesk Light;
+  color: var(--white);
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration-thickness: 1px;
+}
+
+.footer-links:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.first-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.second-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.third-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.All-links {
+  display: flex;
+  gap: 50px;
+}
+
+.Logo-Title {
+  font-family: ITC Fenice Regular;
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 45px;
+}
+.Logo-Subtitle {
+  font-family: ITC Fenice Regular;
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 30px;
+}
+
+.footer-top {
+  display: flex;
+}
+
+.footer {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+.footer-underline {
+  width: 1501px;
+  height: 1px;
+}
+.footer-top-underline {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.socials-icons {
+  opacity: 0.8;
+  transition: 0.4s ease;
+}
+
+.socials-icons:hover {
+  width: 75px;
+  height: 75px;
+  opacity: 1;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.copyright {
+  color: var(--white);
+  font-family: Altmann Grotesk Light;
+  font-size: 16px;
+}
+
+.socials-copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  margin-top: 75px;
+  padding-bottom: 100px;
+}
+
+.page {
+  padding-top: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 1400px) {
+  .Form-IMG {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+  }
+  .Form-Teaser {
+    margin-bottom: 50px;
+    margin-right: 0px;
+  }
+  img {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  .text-input {
+    width: 100%;
+  }
+}
